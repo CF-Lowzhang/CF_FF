@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <script type="text/javascript" src="nui://game/ui/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="F1_menu.css">
+  <link rel="stylesheet" href="F3_menu.css">   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+  <link rel="stylesheet" href="assets/css/Accordion-with-custom-design.css">
+  <link rel="stylesheet" href="assets/css/Toggle-Switch-1.css">
+  <link rel="stylesheet" href="assets/css/Toggle-Switch.css">
+  <script src="F3_app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+  <script>
+    $(function() {
+      /* open the UI for user */
+      window.addEventListener('message', function(event) {
+        if(event.data.type == "F1_init"){  
+          $('.F1_menu').show()          
+          setTimeout(function(){ document.getElementById("menu-toggler").checked = true;}, 50);
+          
+        } else if (event.data.type == "F1_destroy"){      
+          document.getElementById("menu-toggler").checked = false;       
+          setTimeout(function(){ $('.F1_menu').hide()}, 300);
+          //setTimeout(function(){ $('body').css('display', 'none')}, 400);
+        }    
+      });
+    }); 
+  </script>
+</head>
+<body>
+
+<div class="F3_menu">
+   <div class="hexagon hex-1">
+      <i class="i-1"></i>
+      <div id="label-1"></div>
+   </div>
+   <div class="hexagon hex-2">
+      <i class="i-2"></i>
+      <div id="label-2"></div>
+   </div>
+   <div class="hexagon hex-3">
+      <i class="i-3"></i>
+      <div id="label-3"></div>
+   </div>
+   <div class="hexagon hex-4">
+      <i class="i-4"></i>
+      <div id="label-4"></div>
+   </div>
+   <div class="hexagon hex-5">
+      <i class="i-5"></i>
+      <div id="label-5"></div>
+   </div>
+   <div class="hexagon hex-6">
+      <i class="i-6"></i>
+      <div id="label-6"></div>
+   </div>
+   <div class="hexagon close">
+      <i class="i-close"></i>
+      <div id="label-close"></div>
+   </div>
+   <div class="hexagon back">
+      <i class="i-back"></i>
+      <div id="label-back"></div>
+   </div>
+</div>
+
+<nav class='F1_menu'>
+  <input class='menu-toggler' id='menu-toggler' type='checkbox'>
+  <label for='menu-toggler'></label>
+  <ul>
+    <li class='menu-item' data-id="inventory">
+      <a><img src="F1_img/backpack-1.png" /></a>
+    </li>\
+    <li class='menu-item' data-id="pet">
+      <a><img src="F1_img/backpack.png" /></a>
+    </li>\
+    <li class='menu-item' data-id="calculate">
+      <a><img src="F1_img/PropX.png" /></a>
+    </li>\
+    <li class='menu-item' data-id="dance">
+      <a><img src="F1_img/dance.png" /></a>
+    </li>\
+    <li class='menu-item' data-id="radio">
+      <a><img src="F1_img/walkie-talkie.png" /></a>
+    </li>
+    <li class='menu-item' data-id="phone">
+      <a><img src="F1_img/phone_B.png" /></a>
+    </li>
+  </ul>
+</nav>
+
+<script type="text/javascript">
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "200px";
+  }
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  $("#menu-toggler").click(function(){
+    $.post(`https://${GetParentResourceName()}/F1_closemenu`, JSON.stringify({}));
+  });
+
+  $("li.menu-item").click(function(){
+    $.post(`https://${GetParentResourceName()}/F1_openmenu`, JSON.stringify({id: $(this).data('id') }));
+  });
+
+  
+  window.addEventListener("keydown", function onEvent(event) {
+      if (event.key == "F1" || event.key == "Escape") {
+          $.post(`https://${GetParentResourceName()}/F1_closemenu`, JSON.stringify({}));
+      }
+  });
+  
+  </script>
+</body>
+</html>
