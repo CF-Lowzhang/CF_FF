@@ -2,8 +2,11 @@
 <html lang="pl">
 <head>
   <script type="text/javascript" src="nui://game/ui/jquery.js"></script>
+  <!-- <script type="text/javascript" src="raphael.min.js"></script> -->
+  <!-- <script type="text/javascript" src="wheelnav.min.js"></script> -->
   <link rel="stylesheet" type="text/css" href="F1_menu.css">
   <link rel="stylesheet" href="F3_menu.css">   
+  <link rel="stylesheet" href="F4_menu.css">   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
   <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
   <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -11,110 +14,159 @@
   <link rel="stylesheet" href="assets/css/Accordion-with-custom-design.css">
   <link rel="stylesheet" href="assets/css/Toggle-Switch-1.css">
   <link rel="stylesheet" href="assets/css/Toggle-Switch.css">
-  <script src="F3_app.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" >
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/57b9d31625.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
-  <script>
-    $(function() {
-      /* open the UI for user */
-      window.addEventListener('message', function(event) {
-        if(event.data.type == "F1_init"){  
-          $('.F1_menu').show()          
-          setTimeout(function(){ document.getElementById("menu-toggler").checked = true;}, 50);
-          
-        } else if (event.data.type == "F1_destroy"){      
-          document.getElementById("menu-toggler").checked = false;       
-          setTimeout(function(){ $('.F1_menu').hide()}, 300);
-          //setTimeout(function(){ $('body').css('display', 'none')}, 400);
-        }    
-      });
-    }); 
-  </script>
+  <script src="F1_app.js"></script>
+  <script src="F3_app.js"></script>
+  <script src="F4_app.js"></script>
 </head>
 <body>
+  <div class="wrapper">
+      <p style="display:none"class="logo-container"><img class="logo" src="images/logo.gif"></p>
+      <div style="opacity:0"class="playermenu">
+         <div class="menu">
+            <div class="rotater" data-type="1">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event1</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="2">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event2</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="3" >
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event3</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="4">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event4</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="5">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event5</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="6">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event6</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="7">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event7</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="8">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event8</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="9">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event9</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="10">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event10</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="11">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event11</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="12">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/question.png">
+                  <p class="btn_description ">event12</p>
+               </div>
+            </div>
+            <div class="rotater" data-type="13">
+               <div class="btn btn-icon">
+                  <img class="btn-image" id="action-1-image" src="images/event.png">
+                  <p class="btn_description ">設定選單</p>
+               </div>
+            </div>
+         </div>
+      </div>
+  </div>
+  <div class="F3_menu">
+     <div class="hexagon hex-1">
+        <i class="i-1"></i>
+        <div id="label-1"></div>
+     </div>
+     <div class="hexagon hex-2">
+        <i class="i-2"></i>
+        <div id="label-2"></div>
+     </div>
+     <div class="hexagon hex-3">
+        <i class="i-3"></i>
+        <div id="label-3"></div>
+     </div>
+     <div class="hexagon hex-4">
+        <i class="i-4"></i>
+        <div id="label-4"></div>
+     </div>
+     <div class="hexagon hex-5">
+        <i class="i-5"></i>
+        <div id="label-5"></div>
+     </div>
+     <div class="hexagon hex-6">
+        <i class="i-6"></i>
+        <div id="label-6"></div>
+     </div>
+     <div class="hexagon close">
+        <i class="i-close"></i>
+        <div id="label-close"></div>
+     </div>
+     <div class="hexagon back">
+        <i class="i-back"></i>
+        <div id="label-back"></div>
+     </div>
+  </div>
 
-<div class="F3_menu">
-   <div class="hexagon hex-1">
-      <i class="i-1"></i>
-      <div id="label-1"></div>
-   </div>
-   <div class="hexagon hex-2">
-      <i class="i-2"></i>
-      <div id="label-2"></div>
-   </div>
-   <div class="hexagon hex-3">
-      <i class="i-3"></i>
-      <div id="label-3"></div>
-   </div>
-   <div class="hexagon hex-4">
-      <i class="i-4"></i>
-      <div id="label-4"></div>
-   </div>
-   <div class="hexagon hex-5">
-      <i class="i-5"></i>
-      <div id="label-5"></div>
-   </div>
-   <div class="hexagon hex-6">
-      <i class="i-6"></i>
-      <div id="label-6"></div>
-   </div>
-   <div class="hexagon close">
-      <i class="i-close"></i>
-      <div id="label-close"></div>
-   </div>
-   <div class="hexagon back">
-      <i class="i-back"></i>
-      <div id="label-back"></div>
-   </div>
-</div>
+  <nav class='F1_menu'>
+    <input class='menu-toggler' id='menu-toggler' type='checkbox'>
+    <label for='menu-toggler'></label>
+    <ul>
+      <li class='menu-item' data-id="inventory">
+        <a><img src="F1_img/backpack-1.png" /></a>
+      </li>\
+      <li class='menu-item' data-id="pet">
+        <a><img src="F1_img/backpack.png" /></a>
+      </li>\
+      <li class='menu-item' data-id="calculate">
+        <a><img src="F1_img/PropX.png" /></a>
+      </li>\
+      <li class='menu-item' data-id="dance">
+        <a><img src="F1_img/dance.png" /></a>
+      </li>\
+      <li class='menu-item' data-id="radio">
+        <a><img src="F1_img/walkie-talkie.png" /></a>
+      </li>
+      <li class='menu-item' data-id="phone">
+        <a><img src="F1_img/phone_B.png" /></a>
+      </li>
+    </ul>
+  </nav>
 
-<nav class='F1_menu'>
-  <input class='menu-toggler' id='menu-toggler' type='checkbox'>
-  <label for='menu-toggler'></label>
-  <ul>
-    <li class='menu-item' data-id="inventory">
-      <a><img src="F1_img/backpack-1.png" /></a>
-    </li>\
-    <li class='menu-item' data-id="pet">
-      <a><img src="F1_img/backpack.png" /></a>
-    </li>\
-    <li class='menu-item' data-id="calculate">
-      <a><img src="F1_img/PropX.png" /></a>
-    </li>\
-    <li class='menu-item' data-id="dance">
-      <a><img src="F1_img/dance.png" /></a>
-    </li>\
-    <li class='menu-item' data-id="radio">
-      <a><img src="F1_img/walkie-talkie.png" /></a>
-    </li>
-    <li class='menu-item' data-id="phone">
-      <a><img src="F1_img/phone_B.png" /></a>
-    </li>
-  </ul>
-</nav>
-
-<script type="text/javascript">
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
-  }
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-  $("#menu-toggler").click(function(){
-    $.post(`https://${GetParentResourceName()}/F1_closemenu`, JSON.stringify({}));
-  });
-
-  $("li.menu-item").click(function(){
-    $.post(`https://${GetParentResourceName()}/F1_openmenu`, JSON.stringify({id: $(this).data('id') }));
-  });
-
-  
-  window.addEventListener("keydown", function onEvent(event) {
-      if (event.key == "F1" || event.key == "Escape") {
-          $.post(`https://${GetParentResourceName()}/F1_closemenu`, JSON.stringify({}));
-      }
-  });
-  
-  </script>
 </body>
 </html>

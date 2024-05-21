@@ -21,6 +21,7 @@ body {
   opacity: 0;
   cursor: pointer;
 }
+
 .menu-toggler:hover + label, .menu-toggler:hover + label:before, .menu-toggler:hover + label:after {
   background: white;
 }
