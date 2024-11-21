@@ -108,52 +108,13 @@ RegisterNUICallback('Event', function(data)
     end
 end)
 
--------------------------------------
--- F4選單
--------------------------------------
-local F4_menuOn = false
-
-RegisterNUICallback('F4_escape', function(data, cb)
-   SetNuiFocus(false, false)
-   F4_menuOn = false
-end)
-
-RegisterNUICallback('F4_playerAction', function(data, cb)
-   local action = data.action
-   local actionConfig = F4_Config.xMenu.PlayerMenu["key" .. action]
-   --print(action)
-   if actionConfig then
-      F4_Config.Trigger(actionConfig.type, actionConfig.value,"key" .. action)
-   end
-end)
-
-lib.addKeybind({name ='F4選單',
-                defaultKey = "F4",
-                description = "F4選單",
-                onPressed = function()
-                    if LocalPlayer.state.invOpen or lib.progressActive() then return end 
-                    F4_menuOn = not F4_menuOn
-                    if F4_menuOn then  
-                        SendNUIMessage({action = 'F4_player'})
-                        SetCursorLocation(0.5, 0.55)
-                        SetNuiFocus(true, true)
-                        SetNuiFocusKeepInput(true)
-                        DisableControlLoop()
-                    else
-                        SendNUIMessage({action = 'F4_escape'})
-                        SetNuiFocus(false, false)
-                    end
-                end
-                })
-
-
 ---------------------------------------
 -- Function Loop
 -------------------------------------
 
 DisableControlLoop = function()
     Citizen.CreateThread(function()
-        while F3_menuOn or F1_menuOn or F4_menuOn do
+        while F3_menuOn or F1_menuOn do
             Citizen.Wait(0)
             DisablePlayerFiring(cache.playerId, true)
             DisableControlAction(0, 1, true)

@@ -39,6 +39,7 @@ body {
 .menu {
     width: 7.4vh;
     height: 7.4vh;
+    pointer-events:none;
 }
 
 .menu .btn:hover .btn_description {
@@ -86,7 +87,7 @@ body {
     color: var(--Text);
     filter: drop-shadow(0vh 0vh 0.5vh rgba(0, 0, 0, 0.24));
     transform: translate(-50%, -50%);
-    pointer-events:all;
+    pointer-events:none;
 }
 
 .wrapper {

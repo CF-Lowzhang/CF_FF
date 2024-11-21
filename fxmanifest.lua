@@ -40,10 +40,7 @@ files {
     "html/F3_app.js",
     "html/F1_app.js",
     "html/F3_menu.css",
-    "html/F4_app.js",
-    "html/F4_menu.css",
     "html/*.png",
-    "html/images/*.*",
 
     
 }
